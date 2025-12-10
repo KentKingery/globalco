@@ -7,6 +7,7 @@ import (
 	badger "github.com/dgraph-io/badger/v4"
 	"github.com/google/uuid"
 
+	"globalco/productAPI/data"
 	"globalco/productAPI/models"
 )
 
@@ -34,6 +35,8 @@ func main() {
 
 	logger.Info("Product API service started")
 	logger.Info("Created product", "product", product)
-	logger.Info("Product API service started")
 
+	repo := data.NewProductRepository()
+	repo.GetAllProducts()
+	logger.Info("Product API service stopped")
 }
